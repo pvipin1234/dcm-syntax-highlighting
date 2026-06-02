@@ -1,0 +1,16 @@
+{
+  "name": "dcm-client",
+  "description": "DCM Client Thread Hook",
+  "version": "1.0.0",
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:dcm"
+  ],
+  "dependencies": {
+    "vscode-languageclient": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/vscode": "^1.75.0"
+  }
+}

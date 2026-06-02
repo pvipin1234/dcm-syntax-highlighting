@@ -1,0 +1,112 @@
+{
+  "name": "dcm",
+  "version": "0.1.5",
+  "publisher": "Vipee",
+  "license": "MIT",
+  "icon": "./icon/icon.png",
+  "displayName": "DCM Calibration",
+  "description": "VS Code support for DCM Calibration files",
+  "repository": "https://github.com/pvipin1234/dcm-syntax-highlighting",
+  "engines": {
+    "vscode": "^1.120.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "main": "./client/out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "dcm",
+        "aliases": [
+          "dcm",
+          "Automotive Calibration",
+          "Automotive",
+          "Calibration",
+          "DCM",
+          "INCA",
+          "ASAM",
+          "CDF"
+        ],
+        "extensions": [
+          ".dcm",
+          ".DCM"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "dcm",
+        "scopeName": "source.dcm",
+        "path": "./syntaxes/dcm.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "DCM",
+      "properties": {
+        "dcm.formatter.blankLinesBetweenBlocks": {
+          "type": "integer",
+          "default": 1,
+          "minimum": 0,
+          "description": "Defines the precise number of blank lines to ensure between root DCM parameters, functional blocks, and standalone comment structures."
+        },
+        "dcm.formatter.indentStyle": {
+          "type": "string",
+          "enum": [
+            "inherit",
+            "spaces",
+            "tabs"
+          ],
+          "default": "inherit",
+          "scope": "resource",
+          "description": "Set indentation style for DCM blocks. 'inherit' uses the active editor settings."
+        },
+        "dcm.formatter.indentSize": {
+          "type": "integer",
+          "default": 4,
+          "minimum": 1,
+          "maximum": 8,
+          "scope": "resource",
+          "description": "Controls the number of spaces used per indent level when indentStyle is set to 'spaces'."
+        },
+        "dcm.formatter.inlineSpacerType": {
+          "type": "string",
+          "enum": [
+            "spaces",
+            "tabs"
+          ],
+          "default": "spaces",
+          "scope": "resource",
+          "description": "Choose whether to separate inline values/strings using spaces or tabs."
+        },
+        "dcm.formatter.inlineSpaceCount": {
+          "type": "integer",
+          "default": 4,
+          "minimum": 1,
+          "maximum": 8,
+          "scope": "resource",
+          "description": "Controls the number of spaces between inline values. Only applies when inlineSpacerType is set to 'spaces'."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -b client/tsconfig.json server/tsconfig.json",
+    "watch": "tsc -b client/tsconfig.json server/tsconfig.json -w"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@types/vscode": "^1.120.0",
+    "antlr4ts": "^0.5.0-alpha.4",
+    "antlr4ts-cli": "^0.5.0-alpha.4",
+    "typescript": "^5.0.4",
+    "vscode-languageclient": "^9.0.1"
+  },
+  "dependencies": {
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.12"
+  }
+}
