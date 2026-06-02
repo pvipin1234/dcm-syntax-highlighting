@@ -1,0 +1,20 @@
+.DS_Store
+npm-debug.log
+Thumbs.db
+**/node_modules/
+*/out/
+*/.vs/
+tsconfig.lsif.json
+*.lsif
+*.db
+*.tsbuildinfo
+.vscode
+# Don't check in API files. These should be pulled in during install
+vscode*.d.ts
+*.mjs
+*.g4
+*.js
+*.dcm
+*.vsix
+*.map
+package-lock.json
